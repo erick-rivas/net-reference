@@ -1,5 +1,7 @@
 using net_reference.Data;
 using Microsoft.EntityFrameworkCore;
+using net_reference.Resolvers;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,9 +31,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseRouting();
 
-app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapGraphQL();
+    });
+
+
+app.UseHttpsRedirection();
 
 app.MapControllers();
 
