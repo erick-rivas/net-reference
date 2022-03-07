@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using net_reference.Data;
-using net_reference.Models;
+using net_reference.Seed.Models;
 
-namespace net_reference.Resolvers
+namespace net_reference.Seed.Graphql
 {
     public class Query
     {
-#pragma warning disable CS8604 // Possible null reference argument.
+#pragma warning disable CS8604, CS8602 // Possible null reference argument.
 
         // PLAYERS GraphQL
-        public IEnumerable<Player>? GetPlayers([Service] DataContext _context) => _context.Players.Include(p => p.Team).Include(p => p.PlayerPosition);
+        public IEnumerable<Player>? GetPlayers([Service] DataContext _context) => _context.Players.Include(p => p.Team).ThenInclude(p => p.Rival).Include(p => p.PlayerPosition);
 
         public Player? GetPlayerById([Service] DataContext _context, int id) =>  _context.Players.Include(p => p.Team).Include(p => p.PlayerPosition).FirstOrDefault(t => t.Id == id);
 
@@ -25,6 +25,6 @@ namespace net_reference.Resolvers
 
 
 
-#pragma warning restore CS8604 // Possible null reference argument.
+#pragma warning restore CS8604, CS8602 // Possible null reference argument.
     }
 }

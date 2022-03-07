@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace net_reference.Models
+namespace net_reference.Seed.Models
 {
     public class Player
     {

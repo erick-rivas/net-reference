@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace net_reference.Models
+namespace net_reference.Seed.Models
 {
     public class Team
     {

@@ -1,6 +1,6 @@
 using net_reference.Data;
 using Microsoft.EntityFrameworkCore;
-using net_reference.Resolvers;
+using net_reference.Seed.Graphql;
 
 
 var builder = WebApplication.CreateBuilder(args);

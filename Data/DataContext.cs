@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using net_reference.Models;
+using net_reference.Seed.Models;
 
 namespace net_reference.Data
 {

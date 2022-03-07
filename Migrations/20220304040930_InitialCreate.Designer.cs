@@ -24,7 +24,7 @@ namespace net_reference.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("net_reference.Models.Player", b =>
+            modelBuilder.Entity("net_reference.Seed.Models.Player", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace net_reference.Migrations
                         });
                 });
 
-            modelBuilder.Entity("net_reference.Models.PlayerPosition", b =>
+            modelBuilder.Entity("net_reference.Seed.Models.PlayerPosition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -110,7 +110,7 @@ namespace net_reference.Migrations
                         });
                 });
 
-            modelBuilder.Entity("net_reference.Models.Team", b =>
+            modelBuilder.Entity("net_reference.Seed.Models.Team", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,15 +158,15 @@ namespace net_reference.Migrations
                         });
                 });
 
-            modelBuilder.Entity("net_reference.Models.Player", b =>
+            modelBuilder.Entity("net_reference.Seed.Models.Player", b =>
                 {
-                    b.HasOne("net_reference.Models.PlayerPosition", "PlayerPosition")
+                    b.HasOne("net_reference.Seed.Models.PlayerPosition", "PlayerPosition")
                         .WithMany()
                         .HasForeignKey("PlayerPositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("net_reference.Models.Team", "Team")
+                    b.HasOne("net_reference.Seed.Models.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -177,9 +177,9 @@ namespace net_reference.Migrations
                     b.Navigation("Team");
                 });
 
-            modelBuilder.Entity("net_reference.Models.Team", b =>
+            modelBuilder.Entity("net_reference.Seed.Models.Team", b =>
                 {
-                    b.HasOne("net_reference.Models.Team", "Rival")
+                    b.HasOne("net_reference.Seed.Models.Team", "Rival")
                         .WithMany()
                         .HasForeignKey("RivalId");
 

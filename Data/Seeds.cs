@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using net_reference.Models;
+using net_reference.Seed.Models;
 
 
 public static class ModelBuilderExtensions
@@ -19,7 +19,7 @@ public static class ModelBuilderExtensions
 
         modelBuilder.Entity<Player>().HasData(
             new Player { Id = 1, Name = "Vinicius JR", IsActive = true, TeamId = 1, PlayerPositionId = 1 },
-            new Player { Id = 2, Name = "Hugo Sánchez", IsActive = false, TeamId = 1, PlayerPositionId = 2 }
+            new Player { Id = 2, Name = "Pedri", IsActive = true, TeamId = 2, PlayerPositionId = 2 }
 
         );
     }
