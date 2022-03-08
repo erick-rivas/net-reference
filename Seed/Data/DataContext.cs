@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using net_reference.Seed.Models;
+using net_reference.Models;
 
 namespace net_reference.Seed.Data
 {
@@ -15,11 +16,16 @@ namespace net_reference.Seed.Data
         {
             modelBuilder.Seed();
 
-            Player.CalculateAttributes(modelBuilder);
+            Players player = new Players();
+
+            player.CalculateAttributes(modelBuilder);
 
         }
 
         public DbSet<Player>? Players { get; set; }
+
+        public DbSet<Players>? Player { get; set; }
+
 
         public DbSet<PlayerPosition>? PlayerPositions { get; set; }
 
