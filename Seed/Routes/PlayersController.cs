@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using net_reference.Seed.Data;
 using net_reference.Seed.Models;
 
-namespace net_reference.Controllers
+namespace net_reference.Seed.Routes
 {
     [Route("api/[controller]")]
     [ApiController]

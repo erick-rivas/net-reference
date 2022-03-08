@@ -19,5 +19,8 @@ namespace net_reference.Seed.Models
         public int PlayerPositionId { get; set; }
 
         public PlayerPosition? PlayerPosition { get; set; }
+
+        public string? NameNId { get; private set; }
+
     }
 }

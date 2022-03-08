@@ -12,7 +12,7 @@ using net_reference.Seed.Data;
 namespace net_reference.Models.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220308003236_InitialCreate")]
+    [Migration("20220308014134_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,10 @@ namespace net_reference.Models.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -53,6 +57,8 @@ namespace net_reference.Models.Migrations
                     b.HasIndex("TeamId");
 
                     b.ToTable("Players");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Player");
 
                     b.HasData(
                         new
@@ -156,6 +162,16 @@ namespace net_reference.Models.Migrations
                             Name = "Barcelona",
                             RivalId = 1
                         });
+                });
+
+            modelBuilder.Entity("net_reference.Models.PlayerExtension", b =>
+                {
+                    b.HasBaseType("net_reference.Seed.Models.Player");
+
+                    b.Property<string>("NameNId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("PlayerExtension");
                 });
 
             modelBuilder.Entity("net_reference.Seed.Models.Player", b =>

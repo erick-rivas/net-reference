@@ -14,6 +14,10 @@ namespace net_reference.Seed.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+
+            modelBuilder.Entity<Player>()
+               .Property(u => u.NameNId)
+               .HasComputedColumnSql("cast([Id] as varchar(5)) + ' ' + [Name]");
         }
 
         public DbSet<Player>? Players { get; set; }
@@ -21,7 +25,6 @@ namespace net_reference.Seed.Data
         public DbSet<PlayerPosition>? PlayerPositions { get; set; }
 
         public DbSet<Team>? Teams { get; set; }
-
 
     }
 }
