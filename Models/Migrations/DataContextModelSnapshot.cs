@@ -30,6 +30,10 @@ namespace net_reference.Models.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -61,6 +65,8 @@ namespace net_reference.Models.Migrations
                     b.HasIndex("TeamId");
 
                     b.ToTable("Players");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Player");
 
                     b.HasData(
                         new
@@ -164,6 +170,13 @@ namespace net_reference.Models.Migrations
                             Name = "Barcelona",
                             RivalId = 1
                         });
+                });
+
+            modelBuilder.Entity("net_reference.Models.Players", b =>
+                {
+                    b.HasBaseType("net_reference.Seed.Models.Player");
+
+                    b.HasDiscriminator().HasValue("Players");
                 });
 
             modelBuilder.Entity("net_reference.Seed.Models.Player", b =>

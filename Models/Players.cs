@@ -3,7 +3,7 @@ using net_reference.Seed.Models;
 
 namespace net_reference.Models
 {
-    public class Players
+    public class Players : Player
     {
         public void CalculateAttributes(ModelBuilder modelBuilder)
         {
