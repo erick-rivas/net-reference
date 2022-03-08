@@ -7,6 +7,7 @@ namespace net_reference.Seed.Data
     public class DataContext : DbContext
 
     {
+        private readonly Players _players = new Players();
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
@@ -16,9 +17,8 @@ namespace net_reference.Seed.Data
         {
             modelBuilder.Seed();
 
-            Players player = new Players();
+            _players.CalculateAttributes(modelBuilder);
 
-            player.CalculateAttributes(modelBuilder);
 
         }
 

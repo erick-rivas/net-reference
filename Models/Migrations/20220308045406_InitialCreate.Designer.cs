@@ -12,7 +12,7 @@ using net_reference.Seed.Data;
 namespace net_reference.Models.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220308044016_InitialCreate")]
+    [Migration("20220308045406_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
