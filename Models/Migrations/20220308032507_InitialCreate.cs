@@ -53,8 +53,7 @@ namespace net_reference.Models.Migrations
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     TeamId = table.Column<int>(type: "int", nullable: false),
                     PlayerPositionId = table.Column<int>(type: "int", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameNId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    NameNId = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "cast([Id] as varchar(5)) + ' ' + [Name]")
                 },
                 constraints: table =>
                 {
@@ -90,8 +89,8 @@ namespace net_reference.Models.Migrations
 
             migrationBuilder.InsertData(
                 table: "Players",
-                columns: new[] { "Id", "Discriminator", "IsActive", "Name", "PlayerPositionId", "TeamId" },
-                values: new object[] { 1, "Player", true, "Vinicius JR", 1, 1 });
+                columns: new[] { "Id", "IsActive", "Name", "PlayerPositionId", "TeamId" },
+                values: new object[] { 1, true, "Vinicius JR", 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "Teams",
@@ -100,8 +99,8 @@ namespace net_reference.Models.Migrations
 
             migrationBuilder.InsertData(
                 table: "Players",
-                columns: new[] { "Id", "Discriminator", "IsActive", "Name", "PlayerPositionId", "TeamId" },
-                values: new object[] { 2, "Player", true, "Pedri", 2, 2 });
+                columns: new[] { "Id", "IsActive", "Name", "PlayerPositionId", "TeamId" },
+                values: new object[] { 2, true, "Pedri", 2, 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_PlayerPositionId",

@@ -15,9 +15,8 @@ namespace net_reference.Seed.Data
         {
             modelBuilder.Seed();
 
-            modelBuilder.Entity<Player>()
-               .Property(u => u.NameNId)
-               .HasComputedColumnSql("cast([Id] as varchar(5)) + ' ' + [Name]");
+            Player.CalculateAttributes(modelBuilder);
+
         }
 
         public DbSet<Player>? Players { get; set; }

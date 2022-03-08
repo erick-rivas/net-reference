@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace net_reference.Seed.Models
 {
@@ -21,6 +21,21 @@ namespace net_reference.Seed.Models
         public PlayerPosition? PlayerPosition { get; set; }
 
         public string? NameNId { get; private set; }
+
+        public string? NameNTeamId { get; set; }
+
+        public static void CalculateAttributes(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Player>()
+               .Property(u => u.NameNId)
+               .HasComputedColumnSql("cast([Id] as varchar(5)) + ' ' + [Name]");
+
+            modelBuilder.Entity<Player>()
+               .Property(u => u.NameNTeamId)
+               .HasComputedColumnSql("cast([TeamId] as varchar(5)) + ' ' + [Name]");
+
+
+        }
 
     }
 }
