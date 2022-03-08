@@ -544,3 +544,4 @@ C:\Users\David Rangel\Documents\GitHub\net-reference\bin\Debug\net6.0\HotChocola
 C:\Users\David Rangel\Documents\GitHub\net-reference\bin\Debug\net6.0\HotChocolate.Utilities.Introspection.dll
 C:\Users\David Rangel\Documents\GitHub\net-reference\bin\Debug\net6.0\HotChocolate.Validation.dll
 C:\Users\David Rangel\Documents\GitHub\net-reference\bin\Debug\net6.0\Microsoft.Extensions.DiagnosticAdapter.dll
+C:\Users\David Rangel\Documents\GitHub\net-reference\bin\Debug\net6.0\appsettings.example.json

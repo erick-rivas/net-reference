@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using net_reference.Data;
+using net_reference.Seed.Data;
 using net_reference.Seed.Models;
 
 namespace net_reference.Seed.Graphql

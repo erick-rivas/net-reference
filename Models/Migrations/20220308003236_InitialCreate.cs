@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace net_reference.Migrations
+namespace net_reference.Models.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -92,14 +92,14 @@ namespace net_reference.Migrations
                 values: new object[] { 1, true, "Vinicius JR", 1, 1 });
 
             migrationBuilder.InsertData(
-                table: "Players",
-                columns: new[] { "Id", "IsActive", "Name", "PlayerPositionId", "TeamId" },
-                values: new object[] { 2, false, "Hugo Sánchez", 2, 1 });
-
-            migrationBuilder.InsertData(
                 table: "Teams",
                 columns: new[] { "Id", "Description", "MarketValue", "Name", "RivalId" },
                 values: new object[] { 2, "Podría ser mejor", 100, "Barcelona", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Players",
+                columns: new[] { "Id", "IsActive", "Name", "PlayerPositionId", "TeamId" },
+                values: new object[] { 2, true, "Pedri", 2, 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_PlayerPositionId",

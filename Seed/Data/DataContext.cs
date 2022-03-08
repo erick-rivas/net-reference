@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using net_reference.Seed.Models;
 
-namespace net_reference.Data
+namespace net_reference.Seed.Data
 {
     public class DataContext : DbContext
 

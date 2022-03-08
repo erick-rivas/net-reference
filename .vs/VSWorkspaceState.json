@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Seed",
+    "\\Seed\\Routes"
   ],
-  "SelectedNode": "\\appsettings-example.json",
   "PreviewInSolutionExplorer": false
 }

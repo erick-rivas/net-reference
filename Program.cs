@@ -1,4 +1,4 @@
-using net_reference.Data;
+using net_reference.Seed.Data;
 using Microsoft.EntityFrameworkCore;
 using net_reference.Seed.Graphql;
 

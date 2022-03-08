@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using net_reference.Data;
+using net_reference.Seed.Data;
 
 #nullable disable
 
-namespace net_reference.Migrations
+namespace net_reference.Models.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220304040930_InitialCreate")]
+    [Migration("20220308003236_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,10 +66,10 @@ namespace net_reference.Migrations
                         new
                         {
                             Id = 2,
-                            IsActive = false,
-                            Name = "Hugo Sánchez",
+                            IsActive = true,
+                            Name = "Pedri",
                             PlayerPositionId = 2,
-                            TeamId = 1
+                            TeamId = 2
                         });
                 });
 

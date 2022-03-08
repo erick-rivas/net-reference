@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using net_reference.Data;
+using net_reference.Seed.Data;
 
 #nullable disable
 
-namespace net_reference.Migrations
+namespace net_reference.Models.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -64,10 +64,10 @@ namespace net_reference.Migrations
                         new
                         {
                             Id = 2,
-                            IsActive = false,
-                            Name = "Hugo Sánchez",
+                            IsActive = true,
+                            Name = "Pedri",
                             PlayerPositionId = 2,
-                            TeamId = 1
+                            TeamId = 2
                         });
                 });
 
