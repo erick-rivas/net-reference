@@ -13,11 +13,11 @@ namespace net_reference.Routes
 {
     [Route("api/Players")]
     [ApiController]
-    public class PlayerRoutesExtensions : ControllerBase
+    public class PlayerRoutes : ControllerBase
     {
         private readonly DataContext _context;
 
-        public PlayerRoutesExtensions(DataContext context)
+        public PlayerRoutes(DataContext context)
         {
             _context = context;
         }
